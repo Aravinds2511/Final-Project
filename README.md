@@ -1,5 +1,13 @@
 # Encode Solidity Bootcamp Q2 2024 - Final Project (Group 7)
 
+## Table of Contents
+- [About](#about)
+- [Description of Project](#description-of-project)
+- [Installation and Initialization](#installation-and-initialization)
+- [Low Level Design (including directory structure)](#low-level-design)
+- [References](#references)
+- [Acknowledgements](#acknowledgements)
+
 ## About
 A decentralized application (DApp) for deploying and staking tokens
 - Project PPT, [here](https://docs.google.com/presentation/d/1WeDXMRLH5CgoY6WR5GYedXd1Aj11W19T/edit?usp=sharing&ouid=109898555287264560472&rtpof=true&sd=true)
@@ -7,7 +15,7 @@ A decentralized application (DApp) for deploying and staking tokens
 ### Description of Project
 This repository contains the code for creating a staking DApp. It is a platform for people to create a token with provided parameters and others can come and stake their token for specified APR (return) on their token. Deployer can specify user stake limit , total stake limit , max number of stakes per user and APR. They can Adjust APR and staking limits , and Withdraw and add tokens.
 
-### Installation
+### Installation and Initialization
 - **Step 1:** Install `node` for your system and OS. Refer [here](https://nodejs.org/en/download/package-manager) for more details.
 - **Step 2:** Clone the directory and `cd` into it
 ```
@@ -59,5 +67,8 @@ npm run dev
 │   │    ├── <INSERT>
 ```
 
-### Reference
+### References
 - https://encodeclub.notion.site/Solidity-Bootcamp-Q2-2024-6b85c86e64234d0d898ede00e53ff1f8
+
+### Acknowledgements
+- To the entire Encode team and mentors, for all their efforts to making this bootcamp a success for all! 
