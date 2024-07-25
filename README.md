@@ -4,7 +4,7 @@
 - [About](#about)
 - [Description of Project](#description-of-project)
 - [Installation and Initialization](#installation-and-initialization)
-- [Low Level Design (including directory structure)](#low-level-design)
+- [Low Level Design (including directory structure)](#low-level-design-including-directory-structure)
 - [References](#references)
 - [Acknowledgements](#acknowledgements)
 
