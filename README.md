@@ -43,7 +43,7 @@ npm run dev
 - **Step 7:** Open  http://localhost:3000/ on browser and interact with the project.
 
 ### High Level Design
-- <INSERT>
+- `TO_BE_INSERTED`
 
 ### Low Level Design (including directory structure)
 ```
@@ -77,4 +77,4 @@ npm run dev
 - [Solidity Bootcamp Q2 2024 notion document](https://encodeclub.notion.site/Solidity-Bootcamp-Q2-2024-6b85c86e64234d0d898ede00e53ff1f8)
 
 ### Acknowledgements
-- To the entire Encode team and mentors, for all their efforts to making this bootcamp a success for all! 
+- To the entire Encode team and mentors, for all their efforts in making this bootcamp a success for all! 
