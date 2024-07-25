@@ -72,6 +72,7 @@ export default function Home() {
     const apiKey = "0e7883073454b6926a88"; // Replace with your Pinata API Key
     const apiSecret = "056437bc03047d76bab5aabaaf372a05351ea1c46e534963b943e1fd17792957"; // Replace with your Pinata Secret API Key
 
+
     // const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
     // const apiKey = process.env.PINATA_API_KEY;
     // const apiSecret = process.env.PINATA_API_SECRET;
@@ -94,6 +95,7 @@ export default function Home() {
     const url = `https://api.pinata.cloud/pinning/pinJSONToIPFS`;
     const apiKey = "0e7883073454b6926a88"; // Replace with your Pinata API Key
     const apiSecret = "056437bc03047d76bab5aabaaf372a05351ea1c46e534963b943e1fd17792957"; // Replace with your Pinata Secret API Key
+
 
     // const url = `https://api.pinata.cloud/pinning/pinJSONToIPFS`;
     // const apiKey = process.env.PINATA_API_KEY;

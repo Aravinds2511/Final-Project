@@ -1,4 +1,3 @@
-// OwnerActions.tsx
 import styles from "../styles/Stake.module.css";
 import { ethers } from "ethers";
 import { useState } from "react";
@@ -9,65 +8,70 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
   const [apr, setApr] = useState<string>("");
   const [userStakeLimit, setUserStakeLimit] = useState<string>("");
   const [totalStakeLimit, setTotalStakeLimit] = useState<string>("");
-  const [status, setStatus] = useState<string>("");
+
+  const [withdrawStatus, setWithdrawStatus] = useState<string>("");
+  const [addStatus, setAddStatus] = useState<string>("");
+  const [aprStatus, setAprStatus] = useState<string>("");
+  const [userLimitStatus, setUserLimitStatus] = useState<string>("");
+  const [totalLimitStatus, setTotalLimitStatus] = useState<string>("");
 
   const handleOwnerWithdrawTokens = async () => {
     try {
-      setStatus("Withdrawing tokens...");
+      setWithdrawStatus("Withdrawing tokens...");
       const tx = await stakingModuleContract.ownerWithdrawTokens(ethers.utils.parseEther(withdrawAmount));
       await tx.wait();
-      setStatus("Tokens withdrawn successfully!");
+      setWithdrawStatus("Tokens withdrawn successfully!");
     } catch (error: any) {
       console.error(error);
-      setStatus(`Error: ${error.message}`);
+      setWithdrawStatus(`Error: ${error.message}`);
     }
   };
 
   const handleOwnerAddTokens = async () => {
     try {
-      setStatus("Adding tokens...");
+      setAddStatus("Adding tokens...");
       const tx = await stakingModuleContract.ownerAddTokens(ethers.utils.parseEther(addAmount));
       await tx.wait();
-      setStatus("Tokens added successfully!");
+      setAddStatus("Tokens added successfully!");
     } catch (error: any) {
       console.error(error);
-      setStatus(`Error: ${error.message}`);
+      setAddStatus(`Error: ${error.message}`);
     }
   };
 
   const handleSetApr = async () => {
     try {
-      setStatus("Setting APR...");
+      setAprStatus("Setting APR...");
       const tx = await stakingModuleContract.setApr(ethers.BigNumber.from(apr));
       await tx.wait();
-      setStatus("APR set successfully!");
+      setAprStatus("APR set successfully!");
     } catch (error: any) {
       console.error(error);
-      setStatus(`Error: ${error.message}`);
+      setAprStatus(`Error: ${error.message}`);
     }
   };
 
   const handleSetUserStakeLimit = async () => {
     try {
-      setStatus("Setting user stake limit...");
+      setUserLimitStatus("Setting user stake limit...");
       const tx = await stakingModuleContract.setUserStakeLimit(ethers.BigNumber.from(userStakeLimit));
       await tx.wait();
-      setStatus("User stake limit set successfully!");
+      setUserLimitStatus("User stake limit set successfully!");
     } catch (error: any) {
       console.error(error);
-      setStatus(`Error: ${error.message}`);
+      setUserLimitStatus(`Error: ${error.message}`);
     }
   };
 
   const handleSetTotalStakeLimit = async () => {
     try {
-      setStatus("Setting total stake limit...");
+      setTotalLimitStatus("Setting total stake limit...");
       const tx = await stakingModuleContract.setTotalStakeLimit(ethers.BigNumber.from(totalStakeLimit));
       await tx.wait();
-      setStatus("Total stake limit set successfully!");
+      setTotalLimitStatus("Total stake limit set successfully!");
     } catch (error: any) {
       console.error(error);
-      setStatus(`Error: ${error.message}`);
+      setTotalLimitStatus(`Error: ${error.message}`);
     }
   };
 
@@ -82,7 +86,7 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
         <button className={styles.button} onClick={handleOwnerWithdrawTokens}>
           Withdraw Tokens
         </button>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{withdrawStatus}</div>
       </section>
 
       <section className={styles.section}>
@@ -94,7 +98,7 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
         <button className={styles.button} onClick={handleOwnerAddTokens}>
           Add Tokens
         </button>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{addStatus}</div>
       </section>
 
       <section className={styles.section}>
@@ -106,7 +110,7 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
         <button className={styles.button} onClick={handleSetApr}>
           Set APR
         </button>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{aprStatus}</div>
       </section>
 
       <section className={styles.section}>
@@ -118,23 +122,19 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
         <button className={styles.button} onClick={handleSetUserStakeLimit}>
           Set User Stake Limit
         </button>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{userLimitStatus}</div>
       </section>
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Set Total Stake Limit</h2>
         <div>
           <label className={styles.label}>Total Stake Limit</label>
-          <input
-            className={styles.input}
-            value={totalStakeLimit}
-            onChange={(e) => setTotalStakeLimit(e.target.value)}
-          />
+          <input className={styles.input} value={totalStakeLimit} onChange={(e) => setTotalStakeLimit(e.target.value)} />
         </div>
         <button className={styles.button} onClick={handleSetTotalStakeLimit}>
           Set Total Stake Limit
         </button>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{totalLimitStatus}</div>
       </section>
     </>
   );
