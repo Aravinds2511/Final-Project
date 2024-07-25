@@ -42,7 +42,7 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
   const handleSetApr = async () => {
     try {
       setAprStatus("Setting APR...");
-      const tx = await stakingModuleContract.setApr(ethers.BigNumber.from(apr));
+      const tx = await stakingModuleContract.changeApr(ethers.BigNumber.from(apr));
       await tx.wait();
       setAprStatus("APR set successfully!");
     } catch (error: any) {
@@ -105,7 +105,7 @@ const OwnerActions = ({ stakingModuleContract }: any) => {
         <h2 className={styles.sectionTitle}>Set APR</h2>
         <div>
           <label className={styles.label}>APR</label>
-          <input className={styles.input} value={apr} onChange={(e) => setApr(e.target.value)} />
+          <input className={styles.input} value={apr} onChange={(e) => setApr(e.target.value)} placeholder="Example: 1% is 100" />
         </div>
         <button className={styles.button} onClick={handleSetApr}>
           Set APR

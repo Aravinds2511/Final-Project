@@ -229,7 +229,7 @@ export default function Home() {
       </div>
       <div className={styles.formGroup}>
         <label className={styles.label}>APR</label>
-        <input className={styles.input} value={apRate} onChange={handleInputChange(setApRate)} />
+        <input className={styles.input} value={apRate} onChange={handleInputChange(setApRate )}  placeholder="Example: 1% is 100"  />
       </div>
       <div className={styles.formGroup}>
         <label className={styles.label}>User Stake Limit</label>
