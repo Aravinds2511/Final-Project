@@ -42,7 +42,7 @@ npm run dev
 ```
 - **Step 7:** Open  http://localhost:3000/ on browser and interact with the project.
 
-### High Level Design
+### High Level Design - 
 ```mermaid
     graph TD;
         A[User] --> B[Frontend Application]
@@ -65,7 +65,7 @@ npm run dev
         I --> K[Other Network]
 ```
 
-### Low Level Design (including directory structure)
+### Low Level Design (including directory structure) -
 ```
 ├── contracts
 │   ├── StakingModule.sol
