@@ -17,9 +17,9 @@ declare global {
 }
 
 const networkOptions = [
-  { value: "mainnet", label: "Mainnet" },
   { value: "sepolia", label: "Sepolia" },
-  { value: "mumbai", label: "Polygon Mumbai" },
+  { value: "mainnet", label: "Mainnet" },
+  // { value: "mumbai", label: "Polygon Mumbai" },
 ];
 
 interface NetworkConfig {
@@ -29,7 +29,7 @@ interface NetworkConfig {
 const networkConfig: NetworkConfig = {
   mainnet: { chainId: "0x1" },
   sepolia: { chainId: "0xAA36A7" },
-  mumbai: { chainId: "0x13881" },
+ // mumbai: { chainId: "0x13881" },
 };
 
 export default function Home() {
@@ -52,20 +52,30 @@ export default function Home() {
       return;
     }
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
     try {
-      await provider.send("wallet_switchEthereumChain", [{ chainId: networkConfig[selectedNetwork].chainId }]);
-      const newNetwork = await provider.getNetwork();
-      if (newNetwork.chainId === parseInt(networkConfig[selectedNetwork].chainId, 16)) {
-        setStatus(`Switched to ${selectedNetwork} network`);
-      } else {
-        setStatus(`Failed to switch to the ${selectedNetwork} network. Please try again.`);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const targetChainId = networkConfig[selectedNetwork].chainId;
+    
+        await provider.send("wallet_switchEthereumChain", [{ chainId: targetChainId }]);
+    
+        const newProvider = new ethers.providers.Web3Provider(window.ethereum);
+        const newNetwork = await newProvider.getNetwork();
+    
+        if (newNetwork.chainId === parseInt(targetChainId, 16)) {
+          setStatus(`Switched to ${selectedNetwork} network`);
+        } else {
+          setStatus(`Failed to switch to the ${selectedNetwork} network. Please try again.`);
+        }
+      } catch (error: any) {
+        console.error("Error details:", error);
+    
+        if (error.code === 4902) {
+          setStatus("Network not available in MetaMask. Please add it manually.");
+        } else {
+          setStatus(`Error: ${error.message}`);
+        }
       }
-    } catch (error: any) {
-      console.error("Error details:", error);
-      setStatus(`Error: ${error.message}`);
-    }
-  };
+    };
 
   const uploadImageToPinata = async (file: File) => {
     const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
