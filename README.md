@@ -43,7 +43,27 @@ npm run dev
 - **Step 7:** Open  http://localhost:3000/ on browser and interact with the project.
 
 ### High Level Design
-- `TO_BE_INSERTED`
+```mermaid
+    graph TD;
+        A[User] --> B[Frontend Application]
+        B --> C[Connect Wallet]
+        B --> D[Deploy Staking Contracts Form]
+        D --> E{Smart Contracts}
+        E --> F[Token Contract]
+        E --> G[Staking Module]
+        G --> F
+        G --> H
+    
+        subgraph Blockchain Network
+            E
+            F
+            G
+        end
+    
+        B --> I[Network Selection]
+        I --> J[Sepolia]
+        I --> K[Other Network]
+```
 
 ### Low Level Design (including directory structure)
 ```
