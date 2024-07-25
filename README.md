@@ -6,7 +6,6 @@ A decentralized application (DApp) for deploying and staking tokens
 
 ### Description of Project
 This repository contains the code for creating a staking DApp. It is a platform for people to create a token with provided parameters and others can come and stake their token for specified APR (return) on their token. Deployer can specify user stake limit , total stake limit , max number of stakes per user and APR. They can Adjust APR and staking limits , and Withdraw and add tokens.
-- 
 
 ### Installation
 - **Step 1:** Install `node` for your system and OS. Refer [here](https://nodejs.org/en/download/package-manager) for more details.
