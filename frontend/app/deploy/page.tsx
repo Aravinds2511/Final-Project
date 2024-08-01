@@ -1,7 +1,7 @@
 "use client";
 
-import StakingModule from "../../../artifacts/contracts/StakingModule.sol/StakingModule.json";
-import Token from "../../../artifacts/contracts/Token.sol/Token.json";
+import StakingModule from "../../artifacts/contracts/StakingModule.sol/StakingModule.json";
+import Token from "../../artifacts/contracts/Token.sol/Token.json";
 import ConnectWalletButton from "../connectWalletButton";
 import styles from "../styles/page.module.css";
 import axios from "axios";
